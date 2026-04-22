@@ -1,0 +1,43 @@
+name: Publish New Post
+
+on:
+  push:
+    paths:
+      - 'posts/**.md'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install markdown python-frontmatter
+
+      - name: Find new or changed markdown files
+        id: changed
+        run: |
+          FILES=$(git diff --name-only HEAD~1 HEAD -- 'posts/*.md' | tr '\n' ' ')
+          echo "files=$FILES" >> $GITHUB_OUTPUT
+
+      - name: Convert markdown to HTML and update index
+        run: python .github/scripts/convert.py ${{ steps.changed.outputs.files }}
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add *.html
+          git diff --cached --quiet || git commit -m "Publish: auto-convert markdown posts"
+          git push

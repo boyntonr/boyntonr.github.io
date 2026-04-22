@@ -3,219 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>intro</title>
+  <title>intro — Nick Boynton</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --text: #111;
-      --muted: #888;
-      --bg: #faf9f7;
-      --rule: #ddd;
+      --text: #111; --muted: #888; --bg: #faf9f7; --rule: #ddd;
       --font-body: 'EB Garamond', Georgia, serif;
       --font-mono: 'JetBrains Mono', 'Courier New', monospace;
     }
-
-    html {
-      font-size: 18px;
-      scroll-behavior: smooth;
-    }
-
+    html { font-size: 18px; scroll-behavior: smooth; }
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      line-height: 1.75;
-      padding: 4rem 1.5rem 6rem;
-      max-width: 640px;
-      margin: 0 auto;
-      -webkit-font-smoothing: antialiased;
+      background: var(--bg); color: var(--text); font-family: var(--font-body);
+      line-height: 1.75; padding: 4rem 1.5rem 6rem;
+      max-width: 640px; margin: 0 auto; -webkit-font-smoothing: antialiased;
     }
-
-    /* --- NAV --- */
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    nav { display: flex; gap: 1.5rem; margin-bottom: 4rem; font-family: var(--font-mono);
+           font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
     nav a:hover { color: var(--text); }
-
-    /* --- POST HEADER --- */
-    .post-header {
-      margin-bottom: 2.5rem;
-    }
-
-    .post-date {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .post-header h1 {
-      font-size: 1.9rem;
-      font-weight: 500;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 2.5rem 0;
-    }
-
-    /* --- POST BODY --- */
-    .post-body {
-      font-size: 1.05rem;
-      line-height: 1.85;
-    }
-
-    .post-body p {
-      margin-bottom: 1.4rem;
-    }
-
-    .post-body h2 {
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin: 2.5rem 0 0.75rem;
-      letter-spacing: -0.01em;
-    }
-
-    .post-body h3 {
-      font-size: 1.05rem;
-      font-weight: 500;
-      font-style: italic;
-      margin: 2rem 0 0.5rem;
-    }
-
-    .post-body a {
-      color: var(--text);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-color: var(--muted);
-      transition: text-decoration-color 0.15s;
-    }
-
-    .post-body a:hover {
-      text-decoration-color: var(--text);
-    }
-
-    .post-body ul,
-    .post-body ol {
-      padding-left: 1.4rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .post-body li {
-      margin-bottom: 0.4rem;
-    }
-
-    .post-body blockquote {
-      border-left: 2px solid var(--rule);
-      padding-left: 1.25rem;
-      margin: 1.75rem 0;
-      color: #555;
-      font-style: italic;
-    }
-
-    .post-body code {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      background: #eee;
-      padding: 0.15em 0.4em;
-      border-radius: 3px;
-    }
-
-    .post-body pre {
-      background: #f0efed;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 1.25rem;
-      margin: 1.75rem 0;
-      overflow-x: auto;
-    }
-
-    .post-body pre code {
-      background: none;
-      padding: 0;
-      font-size: 0.78rem;
-      line-height: 1.65;
-    }
-
-    .post-body img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 2rem auto;
-    }
-
-    .post-body figcaption {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-top: -1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    /* --- FOOTER / BACK LINK --- */
-    .post-footer {
-      margin-top: 3.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .post-footer a {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    .post-header { margin-bottom: 2.5rem; }
+    .post-date { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted);
+                  letter-spacing: 0.04em; margin-bottom: 0.75rem; display: block; }
+    .post-header h1 { font-size: 1.9rem; font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+    .post-body { font-size: 1.05rem; line-height: 1.85; }
+    .post-body p  { margin-bottom: 1.4rem; }
+    .post-body h2 { font-size: 1.25rem; font-weight: 500; margin: 2.5rem 0 0.75rem; letter-spacing: -0.01em; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 500; font-style: italic; margin: 2rem 0 0.5rem; }
+    .post-body a  { color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+                     text-decoration-color: var(--muted); transition: text-decoration-color 0.15s; }
+    .post-body a:hover { text-decoration-color: var(--text); }
+    .post-body ul, .post-body ol { padding-left: 1.4rem; margin-bottom: 1.4rem; }
+    .post-body li { margin-bottom: 0.4rem; }
+    .post-body blockquote { border-left: 2px solid var(--rule); padding-left: 1.25rem;
+                             margin: 1.75rem 0; color: #555; font-style: italic; }
+    .post-body strong { font-weight: 500; }
+    .post-body code { font-family: var(--font-mono); font-size: 0.8rem; background: #eee;
+                       padding: 0.15em 0.4em; border-radius: 3px; }
+    .post-body pre  { background: #f0efed; border: 1px solid var(--rule); border-radius: 4px;
+                       padding: 1.25rem; margin: 1.75rem 0; overflow-x: auto; }
+    .post-body pre code { background: none; padding: 0; font-size: 0.78rem; line-height: 1.65; }
+    .post-body img { max-width: 100%; height: auto; display: block; margin: 2rem auto; }
+    .post-footer { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--rule);
+                    display: flex; justify-content: space-between; align-items: center; }
+    .post-footer a { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
+                      letter-spacing: 0.04em; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .post-footer a:hover { color: var(--text); }
-
-    footer {
-      margin-top: 3rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.03em;
-    }
-
-    /* --- FADE IN --- */
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    nav         { animation: fadein 0.5s ease both 0s; }
+    footer { margin-top: 3rem; font-family: var(--font-mono); font-size: 0.68rem;
+              color: var(--muted); letter-spacing: 0.03em; }
+    @keyframes fadein { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    nav          { animation: fadein 0.5s ease both 0s; }
     .post-header { animation: fadein 0.5s ease both 0.06s; }
     hr           { animation: fadein 0.5s ease both 0.10s; }
     .post-body   { animation: fadein 0.5s ease both 0.14s; }
@@ -229,72 +69,25 @@
     <a href="/">home</a>
     <a href="/#writings">writing</a>
     <a href="/#projects">projects</a>
-    <a href="https://github.com/yourusername" target="_blank" rel="noopener">github</a>
+    <a href="https://github.com/boyntonr" target="_blank" rel="noopener">github</a>
   </nav>
 
   <article>
     <header class="post-header">
       <span class="post-date">2026-04-22</span>
-      <h1>introduction</h1>
+      <h1>intro</h1>
     </header>
 
     <hr />
 
     <div class="post-body">
-
-      <p>
-        Start with a strong opening paragraph. Draw the reader in with a specific
-        observation, a question, or a small story. Avoid preamble — get to the
-        point quickly.
-      </p>
-
-      <p>
-        This is your second paragraph. Expand on the idea. You have room to breathe
-        here — EB Garamond is a pleasure to read at length, so don't be afraid of
-        longer paragraphs if the thought demands it.
-      </p>
-
-      <h2>A section heading</h2>
-
-      <p>
-        Use <code>h2</code> headings to break up longer posts into scannable sections.
-        Keep them short and direct — a heading is a promise to the reader about what
-        comes next.
-      </p>
-
-      <blockquote>
-        A blockquote for a passage you want to highlight, or for quoting someone else.
-        Keep quotes purposeful — only pull in something that genuinely adds to the point.
-      </blockquote>
-
-      <p>
-        Continue the thought after the blockquote. Quotes shouldn't end a section —
-        always follow with your own words.
-      </p>
-
-      <h2>Another section</h2>
-
-      <p>You can use lists when the content is genuinely list-shaped:</p>
-
-      <ul>
-        <li>First item — keep list items roughly parallel in structure</li>
-        <li>Second item — avoid lists just to break up prose</li>
-        <li>Third item — if items need full sentences, prose is usually better</li>
-      </ul>
-
-      <h3>A smaller heading, if needed</h3>
-
-      <p>
-        Use <code>h3</code> sparingly, for sub-sections within a section. Most posts
-        won't need them. If you find yourself reaching for one often, the post might
-        benefit from being split into two.
-      </p>
-
-      <p>
-        End with something that gives the reader a place to land. Not a summary — 
-        they just read it. A final thought, an open question, or a next step.
-      </p>
-
+<p>The promise of AI in materials science is real, but it feels like most of the excitement comes from people who&rsquo;ve never had to justify a capex investment for a new product, work with trade secret or export controlled data, or synthesize 100 polymers for a halfway decent model that tells you exactly what your intuition already did 95 polymers ago.</p>
+<p>In academia, particularly in labs of well funded PIs, there&rsquo;s little that can get in the way of developing a new, interesting material for a high impact publication. Multi step synthesis? No problem. Need a reagent that costs $100s/g? Order it today, no questions asked. This means things like cost and compatibility with high volume manufacturing are generally ignored in favor of making the most interesting material possible. When moving to industry, everyone assumes the focus on cost is the biggest shift. While it is obviously critical, the more challenging bit comes from having to develop materials that can actually be manufactured by your company. The chemistry may be straightforward, but if it&rsquo;s completely new and requires a massive capex investment, it better be the hottest new product on the market or it simply won&rsquo;t get made. By extension, this means that any new tool, process, or chemistry has to either fit into the current workflow or have a demonstrable impact across multiple material and product platforms to be worthy of investment.</p>
+<p>From this lens, ideas like inverse materials design using AI scientists, autonomous labs, or fully integrated characterization-to-analysis instruments seem academically exciting — but currently prohibitively expensive for large materials companies. Maybe in the next 20 or 30 years things shift, but if you&rsquo;re trying to get something done in the next few years, or you&rsquo;re running a smaller operation, that $5M facility rebuild just isn&rsquo;t on the table in the inexpensive world of soft materials. The product margins won&rsquo;t justify it.</p>
+<p>I think too many people focus on the big-ticket moonshots: reinventing battery chemistries, enabling nuclear fusion, things like that. Genuinely useful things — but not where the highest practical impact is for most of us working in a real industrial environment. What I&rsquo;m more interested in is figuring out how to use these tools to make materials that are still cost-effective today. I don&rsquo;t think enough people outside of large industrial companies are focused on this. The incentives in research always push toward &ldquo;higher impact,&rdquo; and this kind of work doesn&rsquo;t always get that label.</p>
+<p>So how do we develop tools that can actually be useful in industrial settings? How do you build genuinely helpful models within a company with trade secrets, export controlled data, and generally little publicly available information? How do you build models that predict actual material and product performance from small, incomplete datasets? These are the kinds of questions that are truly relevant for industrial materials science, and they are the ones I would like to eventually end up answering. I&rsquo;m not going to pretend like I have the answer to any of those questions yet — but that&rsquo;s kinda the point.</p>
+<p>Currently, I am a Senior Research Chemist at a major materials company. My PhD work focused on pluripotent polymer networks and now I use that experience to create high performance polymeric materials for a host of applications — but I am a complete beginner in ML. For me, that means my ML journey, and most posts in this blog, will be filtering everything through the lens of <strong>does this actually matter for making real materials?</strong></p>
+<p>The whole point of this blog is to provide a space for me to talk through my understanding, and offer a public journal of my learnings. Eventually, I hope it becomes a place to dig deeper into any open source projects I&rsquo;m working on. I&rsquo;ll likely mix in the occasional post about books, life as a new dad, or whatever else I feel like writing about.</p>
     </div>
   </article>
 
@@ -304,7 +97,7 @@
   </div>
 
   <footer>
-    <p>© <script>document.write(new Date().getFullYear())</script> Nick Boynton </p>
+    <p>© 2026 Nick Boynton</p>
   </footer>
 
 </body>

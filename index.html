@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --text: #111;
+      --muted: #888;
+      --accent: #111;
+      --bg: #faf9f7;
+      --rule: #ddd;
+      --link: #111;
+      --link-hover: #555;
+      --font-body: 'EB Garamond', Georgia, serif;
+      --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.75;
+      padding: 4rem 1.5rem 6rem;
+      max-width: 640px;
+      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    /* --- HEADER --- */
+    header {
+      margin-bottom: 3.5rem;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.5rem 0;
+    }
+
+    /* --- SECTIONS --- */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* --- WRITING LIST --- */
+    .post-list {
+      list-style: none;
+    }
+
+    .post-list li {
+      display: grid;
+      grid-template-columns: 6.5rem 1fr;
+      gap: 0.75rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .post-list li:hover {
+      border-bottom-color: var(--rule);
+    }
+
+    .post-date {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+      white-space: nowrap;
+    }
+
+    .post-list a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .post-list a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* --- PLAIN LIST (series, projects) --- */
+    .plain-list {
+      list-style: none;
+    }
+
+    .plain-list li {
+      padding: 0.35rem 0;
+      font-size: 1rem;
+    }
+
+    .plain-list a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .plain-list a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .plain-list strong {
+      font-weight: 500;
+    }
+
+    .plain-list .desc {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      margin-top: 4rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* --- FADE IN --- */
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    body > * {
+      animation: fadein 0.5s ease both;
+    }
+
+    nav   { animation-delay: 0s; }
+    header { animation-delay: 0.06s; }
+    section:nth-of-type(1) { animation-delay: 0.12s; }
+    section:nth-of-type(2) { animation-delay: 0.18s; }
+    section:nth-of-type(3) { animation-delay: 0.24s; }
+    footer { animation-delay: 0.30s; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/">home</a>
+    <a href="#writings">writing</a>
+    <a href="#projects">projects</a>
+    <a href="https://github.com/yourusername" target="_blank" rel="noopener">github</a>
+  </nav>
+
+  <header>
+    <h1>Your Name</h1>
+    <p class="tagline">
+      software engineer · writer · curious person<br />
+      interested in the web, learning, and building things
+    </p>
+  </header>
+
+  <hr />
+
+  <!-- WRITINGS -->
+  <section id="writings">
+    <h2>writings</h2>
+    <ul class="post-list">
+      <li>
+        <span class="post-date">2026-04-15</span>
+        <a href="#">How I think about learning new things</a>
+      </li>
+      <li>
+        <span class="post-date">2026-03-01</span>
+        <a href="#">Notes on building in public</a>
+      </li>
+      <li>
+        <span class="post-date">2026-01-10</span>
+        <a href="#">My 2025 in review</a>
+      </li>
+      <li>
+        <span class="post-date">2025-11-20</span>
+        <a href="#">A short essay on consistency</a>
+      </li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>projects</h2>
+    <ul class="plain-list">
+      <li>
+        <strong><a href="https://github.com/yourusername/project-one">Project One</a></strong>
+        <span class="desc"> — a short description of what it does</span>
+      </li>
+      <li>
+        <strong><a href="https://github.com/yourusername/project-two">Project Two</a></strong>
+        <span class="desc"> — another project you're proud of</span>
+      </li>
+      <li>
+        <strong><a href="https://github.com/yourusername/project-three">Project Three</a></strong>
+        <span class="desc"> — one more thing you've built</span>
+      </li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <!-- ABOUT (optional — delete if you prefer mystery) -->
+  <section id="about">
+    <h2>about</h2>
+    <p style="font-size:1rem; color:#444; line-height:1.8;">
+      A sentence or two about who you are. Where you work or what you're working on.
+      What you care about. Keep it brief — the writing speaks for itself.
+    </p>
+  </section>
+
+  <footer>
+    <p>© <script>document.write(new Date().getFullYear())</script> Your Name</p>
+  </footer>
+
+</body>
+</html>

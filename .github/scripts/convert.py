@@ -30,8 +30,8 @@ import markdown
 # ---------------------------------------------------------------------------
 # Config — update YOUR NAME here once, and it propagates everywhere
 # ---------------------------------------------------------------------------
-AUTHOR      = "Your Name"
-GITHUB_USER = "yourusername"
+AUTHOR      = "Nick Boynton"
+GITHUB_USER = "boyntonr"
 NAV_LINKS = [
     ("home",    "/"),
     ("writing", "/#writings"),

@@ -3,87 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>boyntonr.io</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>NR Boynton</title>
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --text: #111;
+      --text: #fff;
       --muted: #888;
-      --accent: #111;
-      --bg: #faf9f7;
-      --rule: #ddd;
-      --link: #111;
-      --link-hover: #555;
-      --font-body: 'EB Garamond', Georgia, serif;
-      --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+      --bg: #000;
+      --rule: #333;
+      --font: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Roboto Mono', Menlo, Consolas, monospace;
     }
 
-    html {
-      font-size: 18px;
-      scroll-behavior: smooth;
-    }
+    html { font-size: 15px; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font-body);
-      line-height: 1.75;
-      padding: 4rem 1.5rem 6rem;
-      max-width: 640px;
+      font-family: var(--font);
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem 5rem;
+      max-width: 680px;
       margin: 0 auto;
-      -webkit-font-smoothing: antialiased;
     }
+
+    a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: var(--muted); }
 
     /* --- NAV --- */
     nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      margin-bottom: 2.5rem;
     }
 
     nav a {
-      color: var(--muted);
+      font-size: 0.9rem;
       text-decoration: none;
-      transition: color 0.15s;
     }
 
-    nav a:hover { color: var(--text); }
+    nav a:hover { text-decoration: underline; }
 
     /* --- HEADER --- */
     header {
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
     }
 
     header h1 {
-      font-size: 1.6rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
     }
 
     .tagline {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .tagline .muted {
       color: var(--muted);
-      font-style: italic;
-      font-size: 1rem;
-      line-height: 1.6;
     }
 
     hr {
       border: none;
       border-top: 1px solid var(--rule);
       margin: 2.5rem 0;
+      width: 5rem;
     }
 
     /* --- SECTIONS --- */
@@ -92,160 +83,121 @@
     }
 
     section h2 {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
 
-    /* --- WRITING LIST --- */
-    .post-list {
-      list-style: none;
-    }
+    /* --- POST LIST --- */
+    .post-list { list-style: none; }
 
     .post-list li {
       display: grid;
-      grid-template-columns: 6.5rem 1fr;
-      gap: 0.75rem;
-      padding: 0.45rem 0;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s;
-    }
-
-    .post-list li:hover {
-      border-bottom-color: var(--rule);
+      grid-template-columns: 7rem 1fr;
+      gap: 1rem;
+      padding: 0.3rem 0;
+      font-size: 0.9rem;
     }
 
     .post-date {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
       color: var(--muted);
-      padding-top: 0.2rem;
       white-space: nowrap;
+      padding-top: 0.05rem;
     }
 
     .post-list a {
       color: var(--text);
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    .post-list a:hover {
-      color: var(--link-hover);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
-    /* --- PLAIN LIST (series, projects) --- */
-    .plain-list {
-      list-style: none;
-    }
+    .post-list a:hover { color: var(--muted); }
+
+    /* --- PLAIN LIST --- */
+    .plain-list { list-style: none; }
 
     .plain-list li {
-      padding: 0.35rem 0;
-      font-size: 1rem;
+      font-size: 0.9rem;
+      padding: 0.25rem 0;
+      line-height: 1.5;
     }
 
-    .plain-list a {
-      color: var(--text);
+    .plain-list strong a {
+      font-weight: 700;
       text-decoration: none;
     }
 
-    .plain-list a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    .plain-list strong a:hover { text-decoration: underline; }
 
-    .plain-list strong {
-      font-weight: 500;
-    }
-
-    .plain-list .desc {
-      color: var(--muted);
-      font-style: italic;
-    }
+    .plain-list .desc { color: var(--muted); }
 
     /* --- FOOTER --- */
     footer {
-      margin-top: 4rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
+      margin-top: 3rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      letter-spacing: 0.03em;
     }
 
-    /* --- FADE IN --- */
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
+    footer nav {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
     }
 
-    body > * {
-      animation: fadein 0.5s ease both;
+    footer nav a {
+      color: var(--text);
+      font-size: 0.8rem;
+      text-decoration: none;
     }
 
-    nav   { animation-delay: 0s; }
-    header { animation-delay: 0.06s; }
-    section:nth-of-type(1) { animation-delay: 0.12s; }
-    section:nth-of-type(2) { animation-delay: 0.18s; }
-    section:nth-of-type(3) { animation-delay: 0.24s; }
-    footer { animation-delay: 0.30s; }
+    footer nav a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="/">home</a>
-    <a href="#writings">writing</a>
-    <a href="#projects">projects</a>
-    <a href="https://github.com/boyntonr" target="_blank" rel="noopener">github</a>
+    <a href="/">NR Boynton</a>
   </nav>
 
   <header>
-    <h1>Nick Boynton</h1>
+    <h1>NR Boynton</h1>
     <p class="tagline">
-      polymer scientist<br />
-      interested in learning and building
+      polymer scientist . researcher<br />
+      <br />
+      <span class="muted">materials science . machine learning<br />
+      understanding how ML applies to industrial chemistry</span>
     </p>
   </header>
 
   <hr />
 
-  <!-- WRITINGS -->
   <section id="writings">
     <h2>writings</h2>
     <ul class="post-list">
       <li>
         <span class="post-date">2026-04-22</span>
-        <a href="/intro.html">intro</a>
+        <a href="/intro.html">The Promise of AI in Materials Science</a>
       </li>
     </ul>
   </section>
 
   <hr />
 
-  <!-- PROJECTS -->
   <section id="projects">
     <h2>projects</h2>
     <ul class="plain-list">
     </ul>
   </section>
 
-  <hr />
-
-  <!-- ABOUT (optional — delete if you prefer mystery) -->
-  <section id="about">
-    <h2>about</h2>
-    <p style="font-size:1rem; color:#444; line-height:1.8;">
-      Polymer/materials scientist interested in learning about new technologies, building skills, and reading good books. Also a new dad.
-    </p>
-  </section>
-
   <footer>
-    <p>© <script>document.write(new Date().getFullYear())</script> Nick Boynton </p>
+    <p>Copyright © <script>document.write(new Date().getFullYear())</script> NR Boynton </p>
+    <nav>
+      <a href="/">home</a>
+      <a href="/#writings">writings</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">code</a>
+    </nav>
   </footer>
 
 </body>
